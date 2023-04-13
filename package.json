@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/chengjieyun59/islands/issues"
   },
-  "homepage": "https://github.com/chengjieyun59/islands#readme"
+  "homepage": "https://github.com/chengjieyun59/islands#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
 }
