@@ -2,7 +2,6 @@ const fs = require('fs');
 
 const data = fs.readFileSync(process.stdin.fd, 'utf-8');
 const map = data.replace(/\n$/, "").split('\n').map(row => row.split(''));
-console.log(map);
 
 function getMaxIslandArea(map) {
     const maxRow = map.length;
@@ -11,6 +10,11 @@ function getMaxIslandArea(map) {
     function dfs(r, c) {
         if (r < 0 || r === maxRow || c < 0 || c === maxCol || map[r][c] === '~' || map[r][c] === '*') {
             return 0;
+        }
+
+        if (!['~', '^', '*'].includes(map[r][c])) {
+            process.stdout.write(`The map has invalid characters or is not a rectangle:\n${data}`);
+            process.exit(1);
         }
 
         map[r][c] = '*';
@@ -26,4 +30,5 @@ function getMaxIslandArea(map) {
     return maxArea;
 }
 
-console.log(`The area of the largest island is: ${getMaxIslandArea(map)}`);
+process.stdout.write(`The area of the largest island is: ${getMaxIslandArea(map)}`);
+process.exit(0);
