@@ -35,5 +35,5 @@ function getMaxIslandArea(map) {
     return maxArea;
 }
 
-process.stdout.write(`The area of the largest island is: ${getMaxIslandArea(map)}`);
-process.exit(0);
+process.stdout.write(getMaxIslandArea(map));
+process.exit();
